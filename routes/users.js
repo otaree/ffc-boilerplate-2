@@ -5,9 +5,15 @@ var User = require('../models/users');
 
 // show login form 
 router.get('/login', function (req, res) {
-  res.render('login', {
-    message: req.flash('loginMessage')
-  });
+  let flashMsg = req.flash('loginMessage');
+  if (flashMsg.length > 0) {
+    res.render('login', {
+      message: flashMsg
+    });
+  } else {
+    res.render('login');
+  }
+
 });
 
 
