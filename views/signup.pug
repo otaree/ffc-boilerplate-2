@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    if errors
+      each error in errors
+        .alert.alert-danger #{ error.msg }
+    form(action="/users/signup" method="post")
+      .form-group.row
+        label.col-sm-2.col-form-label Name
+        .col-sm-10
+          input.form-control-plaintext(type="text"  placeholder="Name" name="name")
+      .form-group.row
+        label.col-sm-2.col-form-label Username
+        .col-sm-10
+          input.form-control-plaintext(type="text"  placeholder="Username" name="username")
+      .form-group.row
+        label.col-sm-2.col-form-label Email
+        .col-sm-10
+          input.form-control-plaintext(type="text" placeholder="Email" name="email")
+      .form-group.row
+        label.col-sm-2.col-form-label Password
+        .col-sm-10
+           input.form-control(type="password" name="password" placeholder="Password")
+      .form-group.row
+        label.col-sm-2.col-form-label Confirm Password
+        .col-sm-10
+           input.form-control(type="password" name="password2" placeholder="Password")
+      .text-center
+        button.btn.btn-dark(type="submit") Sign Up
